@@ -1,7 +1,7 @@
-dictate.js
+dictatemp3.js
 ==========
 
-__dictate.js__ is a small Javascript library for browser-based real-time speech recognition.
+__dictatemp3.js__ is a small Javascript library for browser-based real-time speech recognition.
 It uses [Recorderjs](https://github.com/mattdiamond/Recorderjs) for audio capture,
 and a WebSocket connection to the
 [Kaldi GStreamer server](https://github.com/alumae/kaldi-gstreamer-server) for speech recognition.
