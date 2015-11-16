@@ -13,22 +13,6 @@ The API is modelled after [Android's SpeechRecognizer](http://developer.android.
 See the source code of [lib/dictate.js](lib/dictate.js) and
 the usage in [demos/demo.js](demos/demo.js).
 
-Running the demos
------------------
-
-To run the demos on localhost, start a local webservice, e.g.:
-
-	python -m SimpleHTTPServer
-
-and then open e.g. <http://localhost:8000/demos/mob.html>.
-
-In order to avoid the repeated request for access to the microphone use
-a https-URL, this works e.g. with Google App Engine.
-
-Some demos are available [here](http://kaljurand.github.io/dictate.js/).
-
-The demos offer Estonian and English speech recognition.
-
 Browser support
 ---------------
 
