@@ -20,6 +20,6 @@
     "tests"
   ],
   "dependencies": {
-    "recordermp3.js": "~1.2.0"
+    "recordermp3.js": "~1.3.0"
   }
 }
