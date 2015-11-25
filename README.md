@@ -4,7 +4,7 @@ dictatemp3.js
 __dictatemp3.js__ is a small Javascript library for browser-based real-time speech recognition.
 It uses [recordermp3.js](https://github.com/kdavis-mozilla/recordermp3.js) for audio capture,
 and a WebSocket connection to the
-[Kaldi GStreamer server](https://github.com/alumae/kaldi-gstreamer-server) for speech recognition.
+[Kaldi DNN GStreamer server](https://github.com/alumae/kaldi-gstreamer-server) for speech recognition.
 
 API
 ---
