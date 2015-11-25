@@ -10,8 +10,7 @@ API
 ---
 
 The API is modelled after [Android's SpeechRecognizer](http://developer.android.com/reference/android/speech/SpeechRecognizer.html).
-See the source code of [lib/dictate.js](lib/dictate.js) and
-the usage in [demos/demo.js](demos/demo.js).
+See the source code of [lib/dictate.js](lib/dictate.js).
 
 Browser support
 ---------------
