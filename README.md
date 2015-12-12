@@ -16,10 +16,7 @@ Browser support
 ---------------
 
 Known to work in
-  - Google Chrome 41.0 on Ubuntu desktop
-  - Google Chrome 45.0 on Android 5.1
-  - Firefox 37.0.1 on Ubuntu desktop (unstable: often seems to lose connection to microphone)
-  - Firefox 41.0 on Android 5.1 (unstable: often seems to lose connection to microphone)
+  - Firefox 45.0a1 on OSX desktop
 
 See also
 --------
