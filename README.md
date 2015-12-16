@@ -6,6 +6,66 @@ It uses [recordermp3.js](https://github.com/kdavis-mozilla/recordermp3.js) for a
 and a WebSocket connection to the
 [Kaldi DNN GStreamer server](https://github.com/alumae/kaldi-gstreamer-server) for speech recognition.
 
+Quick Start
+---
+
+When installed __dictatemp3.js__ exposes the classes ```Dictate``` and ```Transcription```. The following snippet is an example of their use
+
+```Javascript
+// Create Transcription to hold utterance
+var transcription = new Transcription();
+
+// Create Dictate for speech-to-text
+var dictate = new Dictate({
+  server: 'ws://<server ip>:8888/client/ws/speech',
+  serverStatus: 'ws://<server ip>:8888/client/ws/status',
+  referenceHandler: 'ws://<server ip>:8888/client/dynamic/reference',
+  mp3RecorderWorkerPath: 'vendor/recordermp3.js/js/enc/mp3/mp3Worker.js',
+  onReadyForSpeech: function() {
+    dictate.isConnected = true;
+    console.info('Ready for speech');
+  },
+  onEndOfSpeech: function() {
+    console.info('End of speech');
+  },
+  onEndOfSession: function() {
+    dictate.isConnected = false;
+    console.info('End of session');
+  },
+  onServerStatus: function(json) {
+    if (json.num_workers_available == 0 && !dictate.isConnected) {
+      console.info('Waiting');
+    }  else {
+      console.info('Ready');
+    }
+  },
+  onPartialResults: function(hypos) {
+    transcription.add(hypos[0].transcript, false); // TODO: Generalize to more results
+    console.info('onPartialResults: ' + transcription.toString());
+  },
+  onResults: function(hypos) {
+    transcription.add(hypos[0].transcript, true); // TODO: Generalize to more results
+    console.info('onResults: ' + transcription.toString());
+    transcription = new Transcription();
+  },
+  onError: function(code, data) {
+    dictate.cancel();
+    console.warn('ERROR: ' + code + ': ' + (data || '')); 
+  },
+  onEvent: function(code, data) {
+    console.info('EVENT: ' + code + ': ' + (data || '')); 
+  }
+});
+
+// Init dictate.isConnected
+dictate.isConnected = false;
+
+// Init Dictate
+dictate.init();
+```
+
+To see a fuller example refer to [iris](https://github.com/kdavis-mozilla/iris) in particular [main.js](https://github.com/kdavis-mozilla/iris/blob/master/public/js/main.js).
+
 API
 ---
 
